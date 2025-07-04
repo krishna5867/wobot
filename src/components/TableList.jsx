@@ -2,21 +2,22 @@ import React, { useEffect, useState } from "react";
 
 const TableList = () => {
   const [cameraData, setCameraData] = useState([]);
+  const url = "https://api-app-staging.wobot.ai/app/v1/fetch/cameras";
+  const token = import.meta.env.VITE_API_TOKEN;
 
   useEffect(() => {
-    fetch("https://api-app-staging.wobot.ai/app/v1/fetch/cameras", {
+    fetch(url, {
       method: "GET",
       headers: {
-        Authorization: "Bearer 4ApVMIn5sTxeW7GQ5VWeWiy",
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        setCameraData(data.data);
+        setCameraData(data?.data || []);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error("API fetch error:", err));
   }, []);
 
   return (

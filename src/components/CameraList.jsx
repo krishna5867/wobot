@@ -5,7 +5,15 @@ import Pagination from "./Pagination";
 
 const CameraList = () => {
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        maxWidth: "1260px",
+        margin: "0 auto",
+      }}
+    >
       <TableHeader />
       <TableList />
       <Pagination />

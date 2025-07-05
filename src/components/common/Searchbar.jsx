@@ -3,8 +3,8 @@ import useDebounce from "../hooks/useDebounce";
 import SearchIcon from "../../assets/down-arrow.svg?react";
 
 const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
-  const debouncedQuery = useDebounce(query, 500);
+  const [inputValue, setInputValue] = useState("");
+  const debouncedQuery = useDebounce(inputValue, 500);
 
   useEffect(() => {
     onSearch(debouncedQuery);
@@ -15,9 +15,7 @@ const SearchBar = ({ onSearch }) => {
       style={{
         display: "flex",
         alignItems: "center",
-        width: "100%",
-        maxWidth: "400px",
-        padding: "7px 12px",
+        padding: "6px 12px",
         borderRadius: "6px",
         backgroundColor: "#F3F3F4",
         border: "1px solid #eee",
@@ -25,8 +23,8 @@ const SearchBar = ({ onSearch }) => {
     >
       <input
         type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
         placeholder="search"
         style={{
           flex: 1,

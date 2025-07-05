@@ -1,33 +1,35 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import DownArrowIcon from "../../assets/down-arrow.svg?react";
+import useClickOutside from "../hooks/useClickOutside";
 
-const Dropdown = ({ label, icon, options = [], selected, onSelect }) => {
+const Dropdown = ({
+  label,
+  icon,
+  options = [],
+  selected,
+  onSelect,
+  openUpward = false,
+  style = {},
+}) => {
+  const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   const isPlaceholder = !selected;
+
+  useClickOutside(dropdownRef, () => setIsOpen(false));
 
   return (
     <div
-      ref={ref}
+      ref={dropdownRef}
       style={{
         width: "100%",
-        maxWidth: "220px",
+        minWidth: "60px",
+        maxWidth: "160px",
         display: "flex",
         flexDirection: "column",
         position: "relative",
         fontFamily: "Inter, sans-serif",
+        ...style,
       }}
     >
       <button
@@ -57,7 +59,9 @@ const Dropdown = ({ label, icon, options = [], selected, onSelect }) => {
         <ul
           style={{
             position: "absolute",
-            top: "100%",
+            top: openUpward ? "auto" : "100%",
+            bottom: openUpward ? "100%" : "auto",
+            right: "100%",
             left: 0,
             width: "100%",
             marginTop: "4px",

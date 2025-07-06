@@ -87,39 +87,39 @@ const Table = ({ data, handleUpdateStatus }) => {
                       </span>
                     </span>
                   </td>
-                  <td
-                    style={{
-                      ...styles.td,
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      padding: "20px 10px !important",
-                    }}
-                  >
-                    <span style={styles.span}>
-                      <HealthCloudIcon style={styles.icon} />
-                      <span
-                        style={{
-                          ...styles.healthRing,
-                          border: `2px solid ${getHealthColor(
-                            camera.health?.cloud
-                          )}`,
-                        }}
-                      >
-                        {camera.health?.cloud}
+                  <td style={styles.td}>
+                    <span
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
+                      }}
+                    >
+                      <span style={styles.span}>
+                        <HealthCloudIcon style={styles.icon} />
+                        <span
+                          style={{
+                            ...styles.healthRing,
+                            border: `2px solid ${getHealthColor(
+                              camera.health?.cloud
+                            )}`,
+                          }}
+                        >
+                          {camera.health?.cloud}
+                        </span>
                       </span>
-                    </span>
-                    <span style={styles.span}>
-                      <HealthDeviceIcon style={styles.icon} />
-                      <span
-                        style={{
-                          ...styles.healthRing,
-                          border: `2px solid ${getHealthColor(
-                            camera.health?.device
-                          )}`,
-                        }}
-                      >
-                        {camera.health?.device}
+                      <span style={styles.span}>
+                        <HealthDeviceIcon style={styles.icon} />
+                        <span
+                          style={{
+                            ...styles.healthRing,
+                            border: `2px solid ${getHealthColor(
+                              camera.health?.device
+                            )}`,
+                          }}
+                        >
+                          {camera.health?.device}
+                        </span>
                       </span>
                     </span>
                   </td>

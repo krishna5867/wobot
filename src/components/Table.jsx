@@ -93,6 +93,7 @@ const Table = ({ data, handleUpdateStatus }) => {
                       display: "flex",
                       alignItems: "center",
                       gap: "6px",
+                      padding: "20px 10px !important",
                     }}
                   >
                     <span style={styles.span}>

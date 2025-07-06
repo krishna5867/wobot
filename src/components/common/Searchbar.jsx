@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import useDebounce from "../hooks/useDebounce";
+import useDebounce from "../../hooks/useDebounce";
 import SearchIcon from "../../assets/down-arrow.svg?react";
 
 const SearchBar = ({ onSearch }) => {

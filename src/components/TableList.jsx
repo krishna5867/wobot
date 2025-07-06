@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
-import useFetch from "./hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import TableHeader from "./TableHeader";
 import Pagination from "./Pagination";
 import Table from "./Table";

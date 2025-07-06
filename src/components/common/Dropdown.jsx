@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import DownArrowIcon from "../../assets/down-arrow.svg?react";
-import useClickOutside from "../hooks/useClickOutside";
+import useClickOutside from "../../hooks/useClickOutside";
 
 const Dropdown = ({
   label,
